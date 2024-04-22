@@ -30,10 +30,10 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
     </p>
     <script>
-        
-        document.addEventListener('wheel', (e) => {
-            console.log("scroll is blocked because event is listened in main thread");
-        });
+        // with this event listner scroll is blocked
+        // document.addEventListener('wheel', (e) => {
+        //     console.log("scroll is blocked because event is listened in main thread");
+        // });
 
         const btn = document.getElementsByTagName('button')[0];
         btn.addEventListener("click", () => {
