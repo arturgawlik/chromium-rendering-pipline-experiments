@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>non blocked scroll with busy main thred</title>
+</head>
+<body>
+    <style>
+        p {
+            width: 300px;
+        }
+    </style>
+    
+    <button>block main thread for 5 seconds</button>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid doloremque explicabo libero, nobis iusto alias fugit laborum quod illum, quaerat ipsa ut maxime eos minima nulla eveniet architecto commodi!
+    </p>
+    <script>
+        
+        document.addEventListener('wheel', (e) => {
+            console.log("scroll is blocked because event is listened in main thread");
+        });
+
+        const btn = document.getElementsByTagName('button')[0];
+        btn.addEventListener("click", () => {
+            const start = Date.now();
+            while (Date.now() - start < 5000);
+        })
+    </script>
+</body>
+</html>
